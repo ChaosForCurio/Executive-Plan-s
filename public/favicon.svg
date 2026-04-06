@@ -1,4 +1,15 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="4" fill="#003333"/>
-  <path d="M9 23V9H11.5L20.5 20.5V9H23V23H20.5L11.5 11.5V23H9Z" fill="#F5EFE6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#003333" />
+  <text 
+    x="16" 
+    y="22" 
+    font-family="serif" 
+    font-size="18" 
+    font-weight="700" 
+    fill="#F5EFE6" 
+    text-anchor="middle"
+    style="font-family: 'Newsreader', serif; letter-spacing: -0.05em;"
+  >
+    EP
+  </text>
 </svg>

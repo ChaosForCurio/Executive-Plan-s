@@ -20,7 +20,7 @@ export default function Navigation() {
           href="/" 
           className={`pointer-events-auto newsreader text-2xl font-bold tracking-tight transition-opacity duration-500 ${scrolled ? 'opacity-0' : 'opacity-100'}`}
         >
-          Joel Maynard
+          EP
         </a>
 
         {/* Floating Rotating Button */}
@@ -50,10 +50,7 @@ export default function Navigation() {
           </div>
         </a>
 
-        {/* Mobile Toggle (Simple for now) */}
-        <button className="md:hidden pointer-events-auto p-2">
-           <span className="material-symbols-outlined text-3xl">menu</span>
-        </button>
+        <div className="md:hidden w-8" />
       </div>
     </div>
   );
