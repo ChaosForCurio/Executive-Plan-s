@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Curator | Joel Maynard - Branding &amp; Digital Design Wiz</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#fff8f2",
+                    "inverse-surface": "#353025",
+                    "tertiary-fixed-dim": "#c0c7d6",
+                    "tertiary-container": "#313844",
+                    "secondary-container": "#e2e2e2",
+                    "surface-container": "#f7ecdd",
+                    "tertiary-fixed": "#dce2f3",
+                    "on-surface": "#201b12",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#5e5e5e",
+                    "surface-tint": "#386569",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#fdf2e2",
+                    "surface-container-high": "#f1e7d7",
+                    "outline-variant": "#c0c8c9",
+                    "primary-container": "#0a3e42",
+                    "on-primary-fixed-variant": "#1e4d51",
+                    "surface-bright": "#fff8f2",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#9aa1b0",
+                    "surface-variant": "#ece1d2",
+                    "inverse-on-surface": "#faefdf",
+                    "on-surface-variant": "#404849",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#7ba9ad",
+                    "surface": "#fff8f2",
+                    "outline": "#707979",
+                    "surface-container-highest": "#ece1d2",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#c6c6c6",
+                    "primary-fixed-dim": "#a0cfd3",
+                    "surface-dim": "#e3d9c9",
+                    "primary-fixed": "#bcebef",
+                    "on-secondary-fixed": "#1b1b1b",
+                    "on-primary-fixed": "#002022",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-tertiary-fixed": "#151c27",
+                    "primary": "#00272a",
+                    "tertiary": "#1c232e",
+                    "on-secondary-fixed-variant": "#474747",
+                    "on-secondary-container": "#646464",
+                    "on-background": "#201b12",
+                    "inverse-primary": "#a0cfd3",
+                    "on-tertiary-fixed-variant": "#404754",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            },
+            "animation": {
+              "fade-up": "fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              "fade-in": "fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards"
+            },
+            "keyframes": {
+              "fadeUp": {
+                "0%": { opacity: "0", transform: "translateY(40px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" }
+              },
+              "fadeIn": {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" }
+              }
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48; }
+        .hand-drawn-border { clip-path: polygon(0% 2%, 100% 0%, 98% 100%, 1% 97%); }
+        .newsreader { font-family: 'Newsreader', serif; }
+        .inter { font-family: 'Inter', sans-serif; }
+
+        /* Scroll reveal styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Nav Transition */
+        nav {
+            transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+        }
+        nav.scrolled {
+            background-color: rgba(255, 248, 242, 0.95);
+            backdrop-blur: 20px;
+            box-shadow: 0 10px 30px -10px rgba(32, 27, 18, 0.1);
+        }
+
+        .project-card {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 20px 40px -15px rgba(32, 27, 18, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface inter antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-transparent" id="main-nav">
+<div class="flex justify-between items-center px-8 py-6 w-full max-w-[1440px] mx-auto">
+<a class="text-2xl font-serif italic text-[#00272a] dark:text-[#fff8f2] font-['Newsreader'] tracking-tight" href="#">The Curator</a>
+<div class="hidden md:flex items-center space-gap-12 gap-12">
+<a class="text-[#00272a] dark:text-[#fff8f2] font-semibold border-b border-[#00272a] dark:border-[#fff8f2] pb-1 font-['Newsreader'] tracking-tight hover:scale-105 transition-transform duration-300 ease-out active:scale-95" href="#">Work</a>
+<a class="text-[#201b12]/60 dark:text-[#fff8f2]/60 font-medium font-['Newsreader'] tracking-tight hover:scale-105 transition-transform duration-300 ease-out active:scale-95" href="#">Archive</a>
+<a class="text-[#201b12]/60 dark:text-[#fff8f2]/60 font-medium font-['Newsreader'] tracking-tight hover:scale-105 transition-transform duration-300 ease-out active:scale-95" href="#">Studio</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-medium hover:scale-105 transition-transform duration-300 ease-out active:scale-95">
+            Let's Talk
+        </button>
+</div>
+</nav>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="max-w-[1440px] mx-auto px-8 md:px-16 pt-12 pb-24 grid md:grid-cols-2 items-center gap-16 overflow-hidden">
+<div class="order-2 md:order-1 animate-fade-up" style="animation-delay: 0.1s; opacity: 0;">
+<h1 class="newsreader text-6xl md:text-8xl font-bold leading-[0.9] text-primary tracking-tight">
+            Joel Maynard — Branding &amp; Digital Design Wiz
+        </h1>
+<div class="mt-12 flex items-center gap-4 group cursor-pointer">
+<div class="w-16 h-[1px] bg-primary/30 group-hover:w-24 transition-all duration-500"></div>
+<span class="inter text-sm uppercase tracking-widest font-semibold text-primary/60">Based in the UK</span>
+</div>
+</div>
+<div class="order-1 md:order-2 relative animate-fade-up" style="animation-delay: 0.3s; opacity: 0;">
+<div class="absolute inset-0 bg-surface-container-high rounded-[40px] -rotate-3 scale-105 -z-10"></div>
+<img alt="Creative Designer" class="w-full h-auto rounded-[32px] object-cover shadow-xl grayscale contrast-125" data-alt="Minimalist artistic illustration of a designer at a desk with a laptop and coffee, clean lines and parchment textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3Dfm_nF6zot5hZucut2-CkyTQ0-JQprRRc-3eY_B-AlisT8LnTMrFHSAVuk3EgTE1BQLIfaj-4qDCkjqZACP-70X35hB93plyBaZLkBnlXHkYc6jsRCpla7jK3dEDWD-Qrohpj_uaSy6Z3lTdRNVguMyyi7j5cJ_egfPwuS49yJvFPqIs0RZO1zAT3ttALvmSKyZR_zJTMtPMtGXZiuekHIPgYDKbIOXqg2fTZ3TBYArdtLkFkl8DvjvtbDh894t8p51WHA6OOLUE"/>
+<!-- Abstract Doodle -->
+<div class="absolute -bottom-10 -right-10 w-32 h-32 text-primary opacity-20">
+<span class="material-symbols-outlined text-[120px]">brush</span>
+</div>
+</div>
+</section>
+<!-- Intro Section -->
+<section class="bg-surface-container-low py-32 reveal">
+<div class="max-w-[1440px] mx-auto px-8 md:px-16">
+<div class="max-w-4xl">
+<p class="newsreader italic text-3xl text-primary/60 mb-8">The Philosophy</p>
+<h2 class="inter text-4xl md:text-5xl font-medium leading-relaxed text-primary">
+                Hey, I'm Joel. A UK based creative who specialises in producing <span class="newsreader italic text-surface-tint">magical</span> brand experiences. I enjoy exploring unique ideas with forward thinking people.
+            </h2>
+</div>
+</div>
+</section>
+<!-- Portfolio Staggered Grid -->
+<section class="max-w-[1440px] mx-auto px-8 md:px-16 py-32">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-y-32 gap-x-12">
+<!-- Project 1: Prevail AI -->
+<div class="md:col-span-7 group project-card reveal">
+<div class="overflow-hidden rounded-2xl bg-surface-container-highest aspect-[4/3] mb-8">
+<img alt="Prevail AI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Abstract digital art featuring fluid geometric shapes in shades of deep teal and cream, representing AI technology" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJd-JaLHCn7cVutPOnNe0kDuDV-aONwM0xJunRvRTYvR00FUeU0rKYaQpJ2dd3hzyAn3MWgc0HqZUvqN68kjKTt99Sg-4TPbXMA6YxOohGcrta3NH-kIX8ObSCSnIvYhFfP1qvpHmTuaAbXTw4sOh6VP4UhxvKqwXIvVfse3emtomHS7D4BabFfk5s__2P70f437VeFE5IKWJAYQEYPcnb95T0MabWT3Fm45sDaSDn3ctCxi6g9Xkd5oWgDFLe4nli5bqCxQJ-5zZY"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="newsreader text-3xl font-bold text-primary mb-2">Prevail AI</h3>
+<p class="inter text-secondary">Branding / Web Design</p>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Project 2: Designed for Disciplined Results -->
+<div class="md:col-span-5 md:pt-48 group project-card reveal">
+<div class="overflow-hidden rounded-2xl bg-surface-container-highest aspect-[3/4] mb-8">
+<img alt="Designed for Disciplined Results" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="High-end minimalist interior with focused lighting on a sleek wooden desk, evoking discipline and professional focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_iMqm1CsPgTcViSkMhC7Y3J_ukhDNK15kqH9Dxz8Fo4Sx0PtK-HsjVCOcx0Wn7ap6c4_THCsY4_qA9aRePEiD4aC4OHw2DVRYRvJHarCZamOsksrCIVVKcE06cETOIi-JjV1f0EKWlaY-NiVrb3LK7FP8XXkXVZxPKHbZjTt9g5AmKhLEdltXP07JvRkRj5PdRzQzaQOy4ZHiDt6-8RV5h5B3FDGdCTVjnHOo4mEmAyxUGmkdswY_R6yL1fukZecOBmQbRLUj1GQO"/>
+</div>
+<div>
+<h3 class="newsreader text-3xl font-bold text-primary mb-2">Designed for Disciplined Results</h3>
+<p class="inter text-secondary">Visual Identity</p>
+</div>
+</div>
+<!-- Project 3: Denim That's Made Better -->
+<div class="md:col-span-5 group project-card reveal">
+<div class="overflow-hidden rounded-2xl bg-surface-container-highest aspect-[3/4] mb-8">
+<img alt="Denim That's Made Better" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Close-up texture of high-quality indigo denim fabric with artisan stitching details and soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsS3Dv7x0KF5rP0owRfOdWbGWLlrUMyhl_XKQ3exNLMWlWOVMcIz6i5ZL-X-k4O_2crzmYiViNkkWqp1sXVUPy_V6Y_0oBBzlAqUwgu0Miqq55NL9Fc5_K-tA8IJBTqz9GatJ-AzCodzwLTOW8F_zZpQgtgrxaVou966ykA2EgO2guPW5VlNEsSMITb7RuNtF8EdRI5wUDmhSqryltk1cTp7AS50dPhuGU9g2l5KNqmemB2MyijZ-a9bWV4ca4ERPxpKhKETdMtkAC"/>
+</div>
+<div>
+<h3 class="newsreader text-3xl font-bold text-primary mb-2">Denim That's Made Better</h3>
+<p class="inter text-secondary">Ecommerce / Brand Strategy</p>
+</div>
+</div>
+<!-- Project 4: A Local Landmark -->
+<div class="md:col-span-7 md:pt-24 group project-card reveal">
+<div class="overflow-hidden rounded-2xl bg-surface-container-highest aspect-[16/9] mb-8">
+<img alt="A Local Landmark" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Dramatic architectural shot of a modern brutalist building facade with strong shadows and clean geometric lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAau6X038eG6c9v66M0KHosS3xz8ar1oR9AUxftQPX6swtgp69KBFPscbugMmj2eK8rOH6F9YOiY_GZQTATQ8Yk7Qd_lfDrqLZhdHQYs5Q_rsboQtuKhKiM_cqMw4Z9v1DE1jnWMb_pSgj_llHs8F8lw7dCH7PhVnY_cDXliqersC__88SgIW6TWbDk4CpyH-xhoZixV8wxrPPq5P8RkFXd2gihCrjU7ghofOmBn1ZLOQJkS3PmGS2e0oPNenWh7xFg1dnr9Xs0gOoL"/>
+</div>
+<div>
+<h3 class="newsreader text-3xl font-bold text-primary mb-2">A Local Landmark</h3>
+<p class="inter text-secondary">Packaging / Typography</p>
+</div>
+</div>
+<!-- Project 5: Cash for Drinks with Mates -->
+<div class="md:col-span-6 group project-card reveal">
+<div class="overflow-hidden rounded-2xl bg-surface-container-highest aspect-[1/1] mb-8">
+<img alt="Cash for Drinks with Mates" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Vibrant lifestyle photo of friends laughing at a modern bar with warm amber lighting and artistic cocktail glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuVe6po8XsC_ufwzNAfpxlJ5QuZXzNgjEuBBae3PjTXRLlLTtwPM2FK2GSV0eFnRqKD5i1zNsyOQfOexy6A3f-J8LrQvgDhOtKEEhq1KrbJfoVkFmy1e-1i0HJ8CNyrjclVOgVMoU9ZTJFKIbeGB6tAtlal0DKbJcfvT9HAere46RgwmEA0lpYulfjVnoXlEYeB_mg5rsVfNbsgQEPPz5c6gbHun2yVuaBc3YgfNzj3fbDYUoaU_uNQbiXnJE9IL9b3Ykp37pQ7D5r"/>
+</div>
+<div>
+<h3 class="newsreader text-3xl font-bold text-primary mb-2">Cash for Drinks with Mates</h3>
+<p class="inter text-secondary">App Design / Fintech</p>
+</div>
+</div>
+<!-- Project 6: Award Winning Crewing Company -->
+<div class="md:col-span-6 md:pt-48 group project-card reveal">
+<div class="overflow-hidden rounded-2xl bg-surface-container-highest aspect-[1/1] mb-8">
+<img alt="Award Winning Crewing Company" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Group of diverse creative professionals collaborating in a bright, airy industrial loft studio space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMhwMsp4xt8L2a6jSJl2sLm6tqFYPT9jk5Q7DSnSvrVf2pMn6FxEv1xcAC9XooqnE_Ze8uCj6F72uvIx31c5a1ip0QSsIbzoMGGvn6KyccohgPaVaJJh5spRm2TYCn3ukRqoEihfF-2YO1T4y63KjZ5TMAfBCxaJkOU_Rfb-MMORjp5CkiuAxOhuAcJL2U-xX3itVvrwJv0ClPaz4U0A2EDnT0FMdcfuR833NKKAl3GP7FtHXRLafTGJfmXm7Y879KNPT-pN56JVba"/>
+</div>
+<div>
+<h3 class="newsreader text-3xl font-bold text-primary mb-2">Award Winning Crewing Company</h3>
+<p class="inter text-secondary">Corporate Identity</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Let's Work Together Section -->
+<section class="max-w-[1440px] mx-auto px-8 md:px-16 py-32">
+<div class="bg-primary rounded-[64px] p-12 md:p-24 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 reveal">
+<!-- Decorative grain overlay -->
+<div class="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/felt.png')]"></div>
+<div class="relative z-10 max-w-xl">
+<h2 class="newsreader text-5xl md:text-7xl font-bold text-background mb-8 leading-tight">
+                Let's work together
+            </h2>
+<p class="inter text-on-primary-container text-xl mb-12">
+                Currently accepting new projects for 2024. Reach out and let's build something magical.
+            </p>
+<a class="inline-block bg-background text-primary px-12 py-5 rounded-full font-bold text-lg hover:scale-105 transition-transform duration-300" href="mailto:hello@mynrd.co.uk">
+                Get in Touch
+            </a>
+</div>
+<div class="relative z-10 w-full max-w-md">
+<img alt="Work with us" class="rounded-[40px] shadow-2xl rotate-3" data-alt="Close up of a designer's hand sketching in a paper notebook with a fine-liner pen, atmospheric studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxep-L8c4nnuN5bwMU5zs_MBKxH-MZkG-p_1KWb3phj5BN1ce-BJiMdLCO-xgDVP14i_XJJwA1xxw8IS3T0G50eu6Be-rbf3qvC14ceU5xH36vqZfX1c3DoYMlbV9BERfzazfV7YQXVFRANfh4aAT8LfyZlCe9YsREifiMM3ZGSFlDFcjhqwo43xD6PKWV7CQEPeaEHvefoFY4a8OMoyeb1_jGbdfTfkvTJBumsVADs0EBcTxhRB9jEF4kmjcnP6znPEFkADAgCDsi"/>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-[48px] mt-24 bg-[#00272a] dark:bg-[#051a1c] flex flex-col items-center gap-8 py-16 px-8 text-center">
+<div class="font-serif italic text-3xl text-[#fff8f2] font-['Newsreader']">The Curator</div>
+<div class="flex flex-wrap justify-center gap-8 md:gap-16">
+<a class="text-[#fff8f2]/70 font-['Inter'] text-sm tracking-wide hover:text-white transition-colors" href="#">Journal</a>
+<a class="text-[#fff8f2]/70 font-['Inter'] text-sm tracking-wide hover:text-white transition-colors" href="#">Instagram</a>
+<a class="text-[#fff8f2]/70 font-['Inter'] text-sm tracking-wide hover:text-white transition-colors" href="#">LinkedIn</a>
+<a class="text-[#fff8f2]/70 font-['Inter'] text-sm tracking-wide hover:text-white transition-colors" href="#">Email</a>
+</div>
+<div class="w-full max-w-4xl h-[1px] bg-white/10 my-8"></div>
+<p class="text-[#fff8f2]/70 font-['Inter'] text-sm tracking-wide">
+        © 2024 Digital Curator Studio. Crafted for the intentional.
+    </p>
+<div class="mt-8 flex gap-4">
+<span class="material-symbols-outlined text-background/20" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-background/20" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="material-symbols-outlined text-background/20" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</footer>
+<script>
+    // Intersection Observer for scroll-triggered reveal animations
+    const revealCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Optional: Stop observing after reveal
+                // observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const revealObserver = new IntersectionObserver(revealCallback, {
+        threshold: 0.15
+    });
+
+    document.querySelectorAll('.reveal').forEach((el, index) => {
+        // Add a small staggered delay based on index for items in the same viewport scan
+        // though the observer triggers them individually as they appear
+        revealObserver.observe(el);
+    });
+
+    // Navigation scroll effect
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // Check on load in case page is already scrolled
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    }
+</script>
+</body></html>

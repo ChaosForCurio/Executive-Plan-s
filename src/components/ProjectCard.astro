@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  category: string;
+  image: string;
+  imageAlt: string;
+  colSpan?: string;
+  offsetTop?: string;
+  aspectRatio?: string;
+}
+
+const {
+  title,
+  category,
+  image,
+  imageAlt,
+  colSpan = 'md:col-span-7',
+  offsetTop = '',
+  aspectRatio = 'aspect-[4/3]',
+} = Astro.props;
+---
+
+<div class={`${colSpan} ${offsetTop} group project-card reveal`}>
+  <div class={`overflow-hidden rounded-2xl bg-surface-container-highest ${aspectRatio} mb-8`}>
+    <img
+      alt={imageAlt}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+      src={image}
+    />
+  </div>
+  <div class="flex justify-between items-start">
+    <div>
+      <h3 class="newsreader text-3xl font-bold text-primary mb-2">{title}</h3>
+      <p class="inter text-secondary">{category}</p>
+    </div>
+    <span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">
+      arrow_forward
+    </span>
+  </div>
+</div>

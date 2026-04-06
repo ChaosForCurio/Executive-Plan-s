@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-background: #fff8f2;
+  --color-inverse-surface: #353025;
+  --color-tertiary-fixed-dim: #c0c7d6;
+  --color-tertiary-container: #313844;
+  --color-secondary-container: #e2e2e2;
+  --color-surface-container: #f7ecdd;
+  --color-tertiary-fixed: #dce2f3;
+  --color-on-surface: #201b12;
+  --color-on-tertiary: #ffffff;
+  --color-secondary: #5e5e5e;
+  --color-surface-tint: #386569;
+  --color-on-error: #ffffff;
+  --color-surface-container-low: #fdf2e2;
+  --color-surface-container-high: #f1e7d7;
+  --color-outline-variant: #c0c8c9;
+  --color-primary-container: #0a3e42;
+  --color-on-primary-fixed-variant: #1e4d51;
+  --color-surface-bright: #fff8f2;
+  --color-on-secondary: #ffffff;
+  --color-on-tertiary-container: #9aa1b0;
+  --color-surface-variant: #ece1d2;
+  --color-inverse-on-surface: #faefdf;
+  --color-on-surface-variant: #404849;
+  --color-error-container: #ffdad6;
+  --color-on-primary-container: #7ba9ad;
+  --color-surface: #fff8f2;
+  --color-outline: #707979;
+  --color-surface-container-highest: #ece1d2;
+  --color-error: #ba1a1a;
+  --color-on-primary: #ffffff;
+  --color-secondary-fixed-dim: #c6c6c6;
+  --color-primary-fixed-dim: #a0cfd3;
+  --color-surface-dim: #e3d9c9;
+  --color-primary-fixed: #bcebef;
+  --color-on-secondary-fixed: #1b1b1b;
+  --color-on-primary-fixed: #002022;
+  --color-secondary-fixed: #e2e2e2;
+  --color-on-tertiary-fixed: #151c27;
+  --color-primary: #00272a;
+  --color-tertiary: #1c232e;
+  --color-on-secondary-fixed-variant: #474747;
+  --color-on-secondary-container: #646464;
+  --color-on-background: #201b12;
+  --color-inverse-primary: #a0cfd3;
+  --color-on-tertiary-fixed-variant: #404754;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-error-container: #93000a;
+
+  /* Border Radius */
+  --radius-DEFAULT: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 9999px;
+
+  /* Font Families */
+  --font-headline: "Newsreader", serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+
+  /* Animations */
+  --animate-fade-up: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+}
+
+/* Scroll reveal styles */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Nav Transition */
+nav {
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+}
+nav.scrolled {
+  background-color: rgba(255, 248, 242, 0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px -10px rgba(32, 27, 18, 0.1);
+}
+
+.project-card {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.project-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px -15px rgba(32, 27, 18, 0.15);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+}
+
+.newsreader { font-family: 'Newsreader', serif; }
+.inter { font-family: 'Inter', sans-serif; }
