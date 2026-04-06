@@ -1,0 +1,47 @@
+---
+interface Props {
+  color?: string;
+  className?: string;
+  position?: "top" | "bottom";
+  flip?: boolean;
+}
+
+const {
+  color = "#F5EFE6",
+  className = "",
+  position = "top",
+  flip = false,
+} = Astro.props;
+---
+
+<div
+  class={`absolute ${position === "top" ? "top-0 -translate-y-[98%]" : "bottom-0 translate-y-[98%]"} left-0 w-full overflow-hidden pointer-events-none z-20 ${className}`}
+>
+  <svg
+    viewBox="0 0 1440 100"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class={`w-full h-auto drop-shadow-[-20px_10px_20px_rgba(0,0,0,0.05)] ${flip ? "scale-y-[-1]" : ""}`}
+  >
+    <path
+      d="M0 100 V 50 
+         Q 30 45 60 50 L 75 42 L 90 50 
+         Q 120 55 150 50 L 165 58 L 180 50 
+         Q 210 45 240 50 L 255 42 L 270 50 
+         Q 300 55 330 50 L 345 58 L 360 50 
+         Q 390 45 420 50 L 435 42 L 450 50 
+         Q 480 55 510 50 L 525 58 L 540 50 
+         Q 570 45 600 50 L 615 42 L 630 50 
+         Q 660 55 690 50 L 705 58 L 720 50 
+         Q 750 45 780 50 L 795 42 L 810 50 
+         Q 840 55 870 50 L 885 58 L 900 50 
+         Q 930 45 960 50 L 975 42 L 990 50 
+         Q 1020 55 1050 50 L 1065 58 L 1080 50 
+         Q 1110 45 1140 50 L 1155 42 L 1170 50 
+         Q 1200 55 1230 50 L 1245 58 L 1260 50 
+         Q 1290 45 1320 50 L 1335 42 L 1350 50 
+         Q 1380 55 1410 50 L 1425 58 L 1440 50 
+         V 100 H 0 Z"
+      fill={color}></path>
+  </svg>
+</div>

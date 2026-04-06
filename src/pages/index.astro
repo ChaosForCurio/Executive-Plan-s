@@ -1,178 +1,218 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navigation from '../components/Navigation.jsx';
-import ProjectCard from '../components/ProjectCard.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.jsx";
+import ProjectCard from "../components/ProjectCard.astro";
+import Footer from "../components/Footer.astro";
+import TornEdge from "../components/TornEdge.astro";
 
 const projects = [
   {
     title: "Prevail AI",
     category: "Branding / Web Design",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAJd-JaLHCn7cVutPOnNe0kDuDV-aONwM0xJunRvRTYvR00FUeU0rKYaQpJ2dd3hzyAn3MWgc0HqZUvqN68kjKTt99Sg-4TPbXMA6YxOohGcrta3NH-kIX8ObSCSnIvYhFfP1qvpHmTuaAbXTw4sOh6VP4UhxvKqwXIvVfse3emtomHS7D4BabFfk5s__2P70f437VeFE5IKWJAYQEYPcnb95T0MabWT3Fm45sDaSDn3ctCxi6g9Xkd5oWgDFLe4nli5bqCxQJ-5zZY",
-    imageAlt: "Abstract digital art featuring fluid geometric shapes in shades of deep teal and cream",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAJd-JaLHCn7cVutPOnNe0kDuDV-aONwM0xJunRvRTYvR00FUeU0rKYaQpJ2dd3hzyAn3MWgc0HqZUvqN68kjKTt99Sg-4TPbXMA6YxOohGcrta3NH-kIX8ObSCSnIvYhFfP1qvpHmTuaAbXTw4sOh6VP4UhxvKqwXIvVfse3emtomHS7D4BabFfk5s__2P70f437VeFE5IKWJAYQEYPcnb95T0MabWT3Fm45sDaSDn3ctCxi6g9Xkd5oWgDFLe4nli5bqCxQJ-5zZY",
+    imageAlt: "Abstract digital art",
     colSpan: "md:col-span-7",
     aspectRatio: "aspect-[4/3]",
   },
   {
-    title: "Designed for Disciplined Results",
+    title: "Disciplined Results",
     category: "Visual Identity",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC_iMqm1CsPgTcViSkMhC7Y3J_ukhDNK15kqH9Dxz8Fo4Sx0PtK-HsjVCOcx0Wn7ap6c4_THCsY4_qA9aRePEiD4aC4OHw2DVRYRvJHarCZamOsksrCIVVKcE06cETOIi-JjV1f0EKWlaY-NiVrb3LK7FP8XXkXVZxPKHbZjTt9g5AmKhLEdltXP07JvRkRj5PdRzQzaQOy4ZHiDt6-8RV5h5B3FDGdCTVjnHOo4mEmAyxUGmkdswY_R6yL1fukZecOBmQbRLUj1GQO",
-    imageAlt: "High-end minimalist interior with focused lighting on a sleek wooden desk",
-    colSpan: "md:col-span-5",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuC_iMqm1CsPgTcViSkMhC7Y3J_ukhDNK15kqH9Dxz8Fo4Sx0PtK-HsjVCOcx0Wn7ap6c4_THCsY4_qA9aRePEiD4aC4OHw2DVRYRvJHarCZamOsksrCIVVKcE06cETOIi-JjV1f0EKWlaY-NiVrb3LK7FP8XXkXVZxPKHbZjTt9g5AmKhLEdltXP07JvRkRj5PdRzQzaQOy4ZHiDt6-8RV5h5B3FDGdCTVjnHOo4mEmAyxUGmkdswY_R6yL1fukZecOBmQbRLUj1GQO",
+    imageAlt: "Minimalist desk",
+    colSpan: "md:col-span-4",
     offsetTop: "md:pt-48",
     aspectRatio: "aspect-[3/4]",
+    tilted: true,
   },
   {
-    title: "Denim That's Made Better",
-    category: "Ecommerce / Brand Strategy",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCsS3Dv7x0KF5rP0owRfOdWbGWLlrUMyhl_XKQ3exNLMWlWOVMcIz6i5ZL-X-k4O_2crzmYiViNkkWqp1sXVUPy_V6Y_0oBBzlAqUwgu0Miqq55NL9Fc5_K-tA8IJBTqz9GatJ-AzCodzwLTOW8F_zZpQgtgrxaVou966ykA2EgO2guPW5VlNEsSMITb7RuNtF8EdRI5wUDmhSqryltk1cTp7AS50dPhuGU9g2l5KNqmemB2MyijZ-a9bWV4ca4ERPxpKhKETdMtkAC",
-    imageAlt: "Close-up texture of high-quality indigo denim fabric with artisan stitching details",
+    title: "Denim Made Better",
+    category: "Ecommerce",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCsS3Dv7x0KF5rP0owRfOdWbGWLlrUMyhl_XKQ3exNLMWlWOVMcIz6i5ZL-X-k4O_2crzmYiViNkkWqp1sXVUPy_V6Y_0oBBzlAqUwgu0Miqq55NL9Fc5_K-tA8IJBTqz9GatJ-AzCodzwLTOW8F_zZpQgtgrxaVou966ykA2EgO2guPW5VlNEsSMITb7RuNtF8EdRI5wUDmhSqryltk1cTp7AS50dPhuGU9g2l5KNqmemB2MyijZ-a9bWV4ca4ERPxpKhKETdMtkAC",
+    imageAlt: "Denim texture",
     colSpan: "md:col-span-5",
     aspectRatio: "aspect-[3/4]",
   },
   {
     title: "A Local Landmark",
-    category: "Packaging / Typography",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAau6X038eG6c9v66M0KHosS3xz8ar1oR9AUxftQPX6swtgp69KBFPscbugMmj2eK8rOH6F9YOiY_GZQTATQ8Yk7Qd_lfDrqLZhdHQYs5Q_rsboQtuKhKiM_cqMw4Z9v1DE1jnWMb_pSgj_llHs8F8lw7dCH7PhVnY_cDXliqersC__88SgIW6TWbDk4CpyH-xhoZixV8wxrPPq5P8RkFXd2gihCrjU7ghofOmBn1ZLOQJkS3PmGS2e0oPNenWh7xFg1dnr9Xs0gOoL",
-    imageAlt: "Dramatic architectural shot of a modern brutalist building facade",
-    colSpan: "md:col-span-7",
+    category: "Packaging",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAau6X038eG6c9v66M0KHosS3xz8ar1oR9AUxftQPX6swtgp69KBFPscbugMmj2eK8rOH6F9YOiY_GZQTATQ8Yk7Qd_lfDrqLZhdHQYs5Q_rsboQtuKhKiM_cqMw4Z9v1DE1jnWMb_pSgj_llHs8F8lw7dCH7PhVnY_cDXliqersC__88SgIW6TWbDk4CpyH-xhoZixV8wxrPPq5P8RkFXd2gihCrjU7ghofOmBn1ZLOQJkS3PmGS2e0oPNenWh7xFg1dnr9Xs0gOoL",
+    imageAlt: "Brutalist building",
+    colSpan: "md:col-span-6",
     offsetTop: "md:pt-24",
     aspectRatio: "aspect-[16/9]",
-  },
-  {
-    title: "Cash for Drinks with Mates",
-    category: "App Design / Fintech",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBuVe6po8XsC_ufwzNAfpxlJ5QuZXzNgjEuBBae3PjTXRLlLTtwPM2FK2GSV0iFnRqKD5i1zNsyOQfOexy6A3f-J8LrQvgDhOtKEEhq1KrbJfoVkFmy1e-1i0HJ8CNyrjclVOgVMoU9ZTJFKIbeGB6tAtlal0DKbJcfvT9HAere46RgwmEA0lpYulfjVnoXlEYeB_mg5rsVfNbsgQEPPz5c6gbHun2yVuaBc3YgfNzj3fbDYUoaU_uNQbiXnJE9IL9b3Ykp37pQ7D5r",
-    imageAlt: "Vibrant lifestyle photo of friends laughing at a modern bar with warm amber lighting",
-    colSpan: "md:col-span-6",
-    aspectRatio: "aspect-[1/1]",
-  },
-  {
-    title: "Award Winning Crewing Company",
-    category: "Corporate Identity",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBMhwMsp4xt8L2a6jSJl2sLm6tqFYPT9jk5Q7DSnSvrVf2pMn6FxEv1xcAC9XooqnE_Ze8uCj6F72uvIx31c5a1ip0QSsIbzoMGGvn6KyccohgPaVaJJh5spRm2TYCn3ukRqoEihfF-2YO1T4y63KjZ5TMAfBCxaJkOU_Rfb-MMORjp5CkiuAxOhuAcJL2U-xX3itVvrwJv0ClPaz4U0A2EDnT0FMdcfuR833NKKAl3GP7FtHXRLafTGJfmXm7E879KNPT-pN56JVba",
-    imageAlt: "Group of diverse creative professionals collaborating in a bright airy industrial loft",
-    colSpan: "md:col-span-6",
-    offsetTop: "md:pt-48",
-    aspectRatio: "aspect-[1/1]",
+    tilted: true,
   },
 ];
 ---
 
-<Layout title="The Curator | Joel Maynard - Branding & Digital Design Wiz">
-
-  <!-- Navigation (React Island) -->
+<Layout title="Executive Plan">
   <Navigation client:load />
 
-  <main class="pt-32">
-
-    <!-- Hero Section -->
-    <section class="max-w-[1440px] mx-auto px-8 md:px-16 pt-12 pb-24 grid md:grid-cols-2 items-center gap-16 overflow-hidden">
-      <div class="order-2 md:order-1 animate-fade-up" style="animation-delay: 0.1s; opacity: 0;">
-        <h1 class="newsreader text-6xl md:text-8xl font-bold leading-[0.9] text-primary tracking-tight">
-          Joel Maynard — Branding &amp; Digital Design Wiz
+  <main>
+    {/* Hero Section */}
+    <section
+      data-theme="light"
+      class="min-h-screen flex flex-col justify-center items-center px-8 text-center pt-24 pb-48"
+    >
+      <div class="reveal active">
+        <p
+          class="inter text-xs uppercase tracking-[0.3em] font-bold text-secondary/40 mb-12"
+        >
+          Kota, Rajasthan, India • {new Date().getFullYear()}
+        </p>
+        <h1
+          class="newsreader text-7xl md:text-[10rem] font-bold leading-[0.85] tracking-tight text-primary max-w-6xl mx-auto"
+        >
+          Branding & <br />
+          <span class="italic text-secondary">Digital Wiz</span>
         </h1>
-        <div class="mt-12 flex items-center gap-4 group cursor-pointer">
-          <div class="w-16 h-[1px] bg-primary/30 group-hover:w-24 transition-all duration-500"></div>
-          <span class="inter text-sm uppercase tracking-widest font-semibold text-primary/60">Based in the UK</span>
-        </div>
       </div>
-      <div class="order-1 md:order-2 relative animate-fade-up" style="animation-delay: 0.3s; opacity: 0;">
-        <div class="absolute inset-0 bg-surface-container-high rounded-[40px] -rotate-3 scale-105 -z-10"></div>
-        <img
-          alt="Creative Designer"
-          class="w-full h-auto rounded-[32px] object-cover shadow-xl grayscale contrast-125"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3Dfm_nF6zot5hZucut2-CkyTQ0-JQprRRc-3eY_B-AlisT8LnTMrFHSAVuk3EgTE1BQLIfaj-4qDCkjqZACP-70X35hB93plyBaZLkBnlXHkYc6jsRCpla7jK3dEDWD-Qrohpj_uaSy6Z3lTdRNVguMyyi7j5cJ_egfPwuS49yJvFPqIs0RZO1zAT3ttALvmSKyZR_zJTMtPMtGXZiuekHIPgYDKbIOXqg2fTZ3TBYArdtLkFkl8DvjvtbDh894t8p51WHA6OOLUE"
-        />
-        <!-- Abstract Doodle -->
-        <div class="absolute -bottom-10 -right-10 w-32 h-32 text-primary opacity-20">
-          <span class="material-symbols-outlined text-[120px]">brush</span>
-        </div>
+
+      <div
+        class="mt-24 flex flex-col items-center gap-6 reveal"
+        style="transition-delay: 0.3s;"
+      >
+        <div class="w-[1px] h-32 bg-primary/10"></div>
+        <p class="inter text-sm uppercase tracking-widest font-bold opacity-40">
+          Scroll to Explore
+        </p>
       </div>
     </section>
 
-    <!-- Intro / Philosophy Section -->
-    <section class="bg-surface-container-low py-32 reveal">
-      <div class="max-w-[1440px] mx-auto px-8 md:px-16">
-        <div class="max-w-4xl">
-          <p class="newsreader italic text-3xl text-primary/60 mb-8">The Philosophy</p>
-          <h2 class="inter text-4xl md:text-5xl font-medium leading-relaxed text-primary">
-            Hey, I'm Joel. A UK based creative who specialises in producing
-            <span class="newsreader italic text-surface-tint">magical</span>
-            brand experiences. I enjoy exploring unique ideas with forward thinking people.
-          </h2>
-        </div>
-      </div>
-    </section>
-
-    <!-- Portfolio Staggered Grid -->
-    <section class="max-w-[1440px] mx-auto px-8 md:px-16 py-32">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-y-32 gap-x-12">
-        {projects.map((project) => (
-          <ProjectCard
-            title={project.title}
-            category={project.category}
-            image={project.image}
-            imageAlt={project.imageAlt}
-            colSpan={project.colSpan}
-            offsetTop={project.offsetTop}
-            aspectRatio={project.aspectRatio}
-          />
-        ))}
-      </div>
-    </section>
-
-    <!-- Let's Work Together Section -->
-    <section class="max-w-[1440px] mx-auto px-8 md:px-16 py-32">
-      <div class="bg-primary rounded-[64px] p-12 md:p-24 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 reveal">
-        <!-- Grain overlay -->
-        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/felt.png');"></div>
-        <div class="relative z-10 max-w-xl">
-          <h2 class="newsreader text-5xl md:text-7xl font-bold text-background mb-8 leading-tight">
-            Let's work together
-          </h2>
-          <p class="inter text-on-primary-container text-xl mb-12">
-            Currently accepting new projects for 2024. Reach out and let's build something magical.
-          </p>
-          <a
-            class="inline-block bg-background text-primary px-12 py-5 rounded-full font-bold text-lg hover:scale-105 transition-transform duration-300"
-            href="mailto:hello@mynrd.co.uk"
+    {/* Philosophy / Intro */}
+    <section
+      id="intro"
+      data-theme="white"
+      class="relative bg-white text-[#0F3D3E] px-8 md:px-16 py-64 transition-colors duration-1000"
+    >
+      <TornEdge color="#FFFFFF" />
+      <div class="max-w-[1440px] mx-auto grid md:grid-cols-12">
+        <div class="md:col-span-8 md:col-start-3 reveal">
+          <h2
+            class="newsreader text-4xl md:text-6xl font-medium leading-tight text-primary/80"
           >
-            Get in Touch
-          </a>
-        </div>
-        <div class="relative z-10 w-full max-w-md">
-          <img
-            alt="Work with us"
-            class="rounded-[40px] shadow-2xl rotate-3"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxep-L8c4nnuN5bwMU5zs_MBKxH-MZkG-p_1KWb3phj5BN1ce-BJiMdLCO-xgDVP14i_XJJwA1xxw8IS3T0G50eu6Be-rbf3qvC14ceU5xH36vqZfX1c3DoYMlbV9BERfzazfV7YQXVFRANfh4aAT8LfyZlCe9YsREifiMM3ZGSFlDFcjhqwo43xD6PKWV7CQEPeaEHvefoFY4a8OMoyeb1_jGbdfTfkvTJBumsVADs0EBcTxhRB9jEF4kmjcnP6znPEFkADAgCDsi"
-          />
+            Hey, I'm Executive Plan. A creative specializing in
+            <span class="italic text-primary">magical</span>
+            brand experiences. I believe in bold ideas and disciplined execution.
+          </h2>
         </div>
       </div>
     </section>
 
+    {/* Portfolio Grid - Triggers Dark Theme */}
+    <section
+      id="portfolio"
+      data-theme="dark"
+      class="relative bg-[#003333] px-8 md:px-16 py-64 transition-colors duration-1000"
+    >
+      <TornEdge color="#003333" />
+      <div class="max-w-[1440px] mx-auto">
+        <div class="mb-32 reveal">
+          <h3 class="newsreader text-2xl italic opacity-60 mb-4">
+            Visual Summary
+          </h3>
+          <div class="w-full h-[1px] bg-primary/10"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-32 md:gap-x-16">
+          {
+            projects.map((project) => (
+              <ProjectCard
+                title={project.title}
+                category={project.category}
+                image={project.image}
+                imageAlt={project.imageAlt}
+                colSpan={project.colSpan}
+                offsetTop={project.offsetTop}
+                aspectRatio={project.aspectRatio}
+                tilted={project.tilted}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    {/* Let's Work Section */}
+    <section
+      id="contact"
+      data-theme="light"
+      class="relative bg-[#F5EFE6] text-[#0F3D3E] px-8 md:px-16 py-64 text-center transition-colors duration-1000"
+    >
+      <TornEdge color="#F5EFE6" />
+      <div class="max-w-4xl mx-auto reveal">
+        <h2
+          class="newsreader text-6xl md:text-9xl font-bold leading-none mb-16"
+        >
+          Let's build <br />
+          <span class="italic text-secondary">Something</span>
+          <br />
+          magical.
+        </h2>
+        <a
+          href="mailto:hello@mynrd.co.uk"
+          class="group relative inline-flex items-center justify-center px-12 py-6 overflow-hidden rounded-full border border-primary/10 transition-all duration-300 hover:border-primary"
+        >
+          <span
+            class="relative z-10 inter font-bold text-xl uppercase tracking-widest"
+            >Get in touch</span
+          >
+          <div
+            class="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
+          >
+          </div>
+          <span
+            class="absolute z-20 inter font-bold text-xl uppercase tracking-widest text-background translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
+            >Get in touch</span
+          >
+        </a>
+      </div>
+    </section>
   </main>
 
-  <!-- Footer -->
   <Footer />
-
 </Layout>
 
 <script>
   // Intersection Observer for scroll-triggered reveal animations
-  const revealCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-    entries.forEach(entry => {
+  const revealCallback = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        (entry.target as HTMLElement).classList.add('active');
+        entry.target.classList.add("active");
       }
     });
   };
 
   const revealObserver = new IntersectionObserver(revealCallback, {
-    threshold: 0.15
+    threshold: 0.1,
   });
 
-  document.querySelectorAll('.reveal').forEach(el => {
-    revealObserver.observe(el);
+  document
+    .querySelectorAll(".reveal")
+    .forEach((el) => revealObserver.observe(el));
+
+  // Theme Switcher Observer
+  const themeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const theme = entry.target.getAttribute("data-theme");
+          if (theme) {
+            document.body.setAttribute("data-theme", theme);
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.25, // Wait until a quarter of the section is visible
+    },
+  );
+
+  document.querySelectorAll("section[data-theme]").forEach((section) => {
+    themeObserver.observe(section);
   });
 </script>

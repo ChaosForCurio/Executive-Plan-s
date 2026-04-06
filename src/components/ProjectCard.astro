@@ -7,6 +7,7 @@ interface Props {
   colSpan?: string;
   offsetTop?: string;
   aspectRatio?: string;
+  tilted?: boolean;
 }
 
 const {
@@ -17,24 +18,31 @@ const {
   colSpan = 'md:col-span-7',
   offsetTop = '',
   aspectRatio = 'aspect-[4/3]',
+  tilted = false,
 } = Astro.props;
 ---
 
-<div class={`${colSpan} ${offsetTop} group project-card reveal`}>
-  <div class={`overflow-hidden rounded-2xl bg-surface-container-highest ${aspectRatio} mb-8`}>
+<div class={`${colSpan} ${offsetTop} group project-card reveal ${tilted ? '-rotate-1 md:-rotate-2' : ''}`}>
+  <div class={`relative overflow-hidden rounded-[40px] bg-surface-container ${aspectRatio} mb-8 shadow-sm transition-all duration-700 ease-out group-hover:shadow-2xl group-hover:-translate-y-2 group-hover:rounded-[24px]`}>
+    {/* Inner Image with Parallax-like scaling */}
     <img
       alt={imageAlt}
-      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+      class="w-full h-full object-cover grayscale brightness-95 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-110 transition-all duration-1000 ease-out"
       src={image}
     />
+    
+    {/* Overlay */}
+    <div class="absolute inset-0 bg-secondary/0 group-hover:bg-secondary/5 transition-colors duration-700"></div>
   </div>
-  <div class="flex justify-between items-start">
-    <div>
-      <h3 class="newsreader text-3xl font-bold text-primary mb-2">{title}</h3>
-      <p class="inter text-secondary">{category}</p>
+  
+  <div class="flex justify-between items-end px-4">
+    <div class="transform transition-transform duration-500 group-hover:translate-x-2">
+      <p class="inter text-xs uppercase tracking-widest text-secondary/60 mb-2 font-bold">{category}</p>
+      <h3 class="newsreader text-3xl md:text-4xl font-bold tracking-tight text-primary leading-tight">{title}</h3>
     </div>
-    <span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">
-      arrow_forward
-    </span>
+    
+    <div class="w-12 h-12 rounded-full border border-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-background transition-all duration-500 transform group-hover:rotate-45">
+       <span class="material-symbols-outlined text-xl">arrow_outward</span>
+    </div>
   </div>
 </div>
