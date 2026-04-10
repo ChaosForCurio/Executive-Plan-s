@@ -1,0 +1,54 @@
+---
+const achievements = [
+  { year: '2025', title: 'Site of the Year', site: 'Awwwards' },
+  { year: '2024', title: 'Digital Excellence', site: 'FWA' },
+  { year: '2024', title: 'Agency of the Month', site: 'CSS Design Awards' },
+  { year: '2023', title: 'Innovation Award', site: 'Lovie Awards' },
+];
+
+const partners = [
+  'Google', 'Apple', 'Stripe', 'Nike', 'Vogue', 'Tesla', 'NASA'
+];
+---
+
+<section class="py-48 px-8 md:px-16 border-t border-primary/10">
+  <div class="max-w-[1440px] mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-32">
+      
+      {/* Recognition Column */}
+      <div class="space-y-24">
+        <div class="inter text-[10px] uppercase tracking-[0.4em] text-primary/30 font-bold reveal">
+          Recognition
+        </div>
+        
+        <div class="space-y-12">
+          {achievements.map((item) => (
+            <div class="group flex items-end justify-between border-b border-primary/5 pb-4 reveal">
+              <div class="space-y-1">
+                <span class="inter text-[10px] font-bold opacity-30">{item.year}</span>
+                <h3 class="newsreader text-3xl md:text-4xl font-bold tracking-tight group-hover:italic transition-all duration-500">{item.title}</h3>
+              </div>
+              <span class="inter text-[10px] uppercase tracking-widest opacity-40 mb-1">{item.site}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Partners Column */}
+      <div class="space-y-24">
+        <div class="inter text-[10px] uppercase tracking-[0.4em] text-primary/30 font-bold reveal">
+          Selected Partners
+        </div>
+        
+        <div class="flex flex-wrap gap-x-12 gap-y-8">
+          {partners.map((partner) => (
+            <span class="newsreader text-4xl md:text-5xl font-bold tracking-tighter hover:italic hover:text-secondary opacity-20 hover:opacity-100 transition-all duration-500 cursor-none reveal">
+              {partner} /
+            </span>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

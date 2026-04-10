@@ -4,10 +4,10 @@ interface Props {
   category: string;
   image: string;
   imageAlt: string;
+  index: number;
   colSpan?: string;
   offsetTop?: string;
   aspectRatio?: string;
-  tilted?: boolean;
 }
 
 const {
@@ -15,34 +15,66 @@ const {
   category,
   image,
   imageAlt,
-  colSpan = 'md:col-span-7',
+  index,
+  colSpan = 'md:col-span-12',
   offsetTop = '',
-  aspectRatio = 'aspect-[4/3]',
-  tilted = false,
+  aspectRatio = 'aspect-[21/9]',
 } = Astro.props;
+
+// Format index: 01, 02...
+const displayIndex = String(index + 1).padStart(2, '0');
 ---
 
-<div class={`${colSpan} ${offsetTop} group project-card reveal ${tilted ? '-rotate-1 md:-rotate-2' : ''}`}>
-  <div class={`relative overflow-hidden rounded-[40px] bg-surface-container ${aspectRatio} mb-8 shadow-sm transition-all duration-700 ease-out group-hover:shadow-2xl group-hover:-translate-y-2 group-hover:rounded-[24px]`}>
-    {/* Inner Image with Parallax-like scaling */}
+<div class={`${colSpan} ${offsetTop} group project-card-v2 reveal`}>
+  <div class={`relative overflow-hidden ${aspectRatio} mb-8 img-container bg-surface-container`}>
     <img
       alt={imageAlt}
-      class="w-full h-full object-cover grayscale brightness-95 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-110 transition-all duration-1000 ease-out"
+      class="w-full h-full object-cover grayscale brightness-105 contrast-110 transition-all duration-1000 ease-expo will-change-transform"
       src={image}
     />
     
-    {/* Overlay */}
-    <div class="absolute inset-0 bg-secondary/0 group-hover:bg-secondary/5 transition-colors duration-700"></div>
+    {/* Sophisticated Reveal Overlay */}
+    <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 backdrop-grayscale-0 blur-0"></div>
+    
+    {/* Item Number Badge */}
+    <div class="absolute top-6 left-6 newsreader text-sm font-bold text-background opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
+      [{displayIndex}]
+    </div>
   </div>
   
-  <div class="flex justify-between items-end px-4">
-    <div class="transform transition-transform duration-500 group-hover:translate-x-2">
-      <p class="inter text-xs uppercase tracking-widest text-secondary/60 mb-2 font-bold">{category}</p>
-      <h3 class="newsreader text-3xl md:text-4xl font-bold tracking-tight text-primary leading-tight">{title}</h3>
+  <div class="flex flex-col md:flex-row justify-between items-start pt-2 gap-6">
+    <div class="max-w-xl">
+      <h3 class="newsreader text-4xl md:text-5xl font-bold tracking-tight text-primary leading-[0.9] mb-4 group-hover:italic transition-all duration-500">
+        {title}
+      </h3>
+      <div class="flex items-center gap-4">
+          <div class="w-8 h-px bg-primary/20"></div>
+          <p class="inter text-[10px] uppercase tracking-[0.3em] text-secondary font-bold font-body">{category}</p>
+      </div>
     </div>
     
-    <div class="w-12 h-12 rounded-full border border-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-background transition-all duration-500 transform group-hover:rotate-45">
-       <span class="material-symbols-outlined text-xl">arrow_outward</span>
+    <div class="w-14 h-14 border border-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-background transition-all duration-700 group-hover:scale-110">
+       <span class="material-symbols-outlined text-xl transition-transform duration-500 group-hover:rotate-45">arrow_outward</span>
     </div>
   </div>
 </div>
+
+<style>
+  .img-container {
+    clip-path: inset(0% 0% 0% 0%);
+    transition: clip-path 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .group:hover .img-container {
+    clip-path: inset(3% 3% 3% 3%);
+  }
+
+  .group:hover img {
+    transform: scale(1.08);
+    filter: grayscale(0) brightness(1);
+  }
+
+  .ease-expo {
+      transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+</style>

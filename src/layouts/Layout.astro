@@ -1,29 +1,91 @@
 ---
+import { ClientRouter } from 'astro:transitions';
+import LenisLoader from '../components/LenisLoader.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description = 'Creative studio crafting bold identities, strategy & digital experiences.' } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
     <title>{title}</title>
+    <ClientRouter />
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-background text-primary inter antialiased min-h-screen">
-    <div class="glow-frame"></div>
+  <body class="bg-background text-primary antialiased min-h-screen">
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
+    <div class="glow-frame" aria-hidden="true"></div>
+    
+    <LenisLoader />
+    
     <slot />
+    <Footer />
+
+    <script>
+      const initCursor = () => {
+        const cursor = document.getElementById('cursor');
+        if (!cursor) return;
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        });
+
+        const animate = () => {
+          const easing = 0.15;
+          cursorX += (mouseX - cursorX) * easing;
+          cursorY += (mouseY - cursorY) * easing;
+
+          cursor.style.transform = `translate3d(${cursorX - 6}px, ${cursorY - 6}px, 0)`;
+          requestAnimationFrame(animate);
+        };
+
+        animate();
+
+        // Hover effects with dynamic re-application
+        const refreshInteractive = () => {
+          const interactiveElements = document.querySelectorAll('a, button, .project-card-v2, .project-card');
+          interactiveElements.forEach((el) => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+          });
+        };
+
+        refreshInteractive();
+      };
+
+      initCursor();
+      document.addEventListener('astro:after-swap', initCursor);
+      document.addEventListener('astro:page-load', initCursor); // Extra safety for SPA-like transitions
+    </script>
   </body>
 </html>

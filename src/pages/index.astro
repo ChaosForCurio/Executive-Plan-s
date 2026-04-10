@@ -2,217 +2,251 @@
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.jsx";
 import ProjectCard from "../components/ProjectCard.astro";
-import Footer from "../components/Footer.astro";
-import TornEdge from "../components/TornEdge.astro";
+import InteractiveServiceList from "../components/InteractiveServiceList.astro";
+import Recognition from "../components/Recognition.astro";
 
 const projects = [
   {
     title: "Prevail AI",
     category: "Branding / Web Design",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAJd-JaLHCn7cVutPOnNe0kDuDV-aONwM0xJunRvRTYvR00FUeU0rKYaQpJ2dd3hzyAn3MWgc0HqZUvqN68kjKTt99Sg-4TPbXMA6YxOohGcrta3NH-kIX8ObSCSnIvYhFfP1qvpHmTuaAbXTw4sOh6VP4UhxvKqwXIvVfse3emtomHS7D4BabFfk5s__2P70f437VeFE5IKWJAYQEYPcnb95T0MabWT3Fm45sDaSDn3ctCxi6g9Xkd5oWgDFLe4nli5bqCxQJ-5zZY",
-    imageAlt: "Abstract digital art",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAJd-JaLHCn7cVutPOnNe0kDuDV-aONwM0xJunRvRTYvR00FUeU0rKYaQpJ2dd3hzyAn3MWgc0HqZUvqN68kjKTt99Sg-4TPbXMA6YxOohGcrta3NH-kIX8ObSCSnIvYhFfP1qvpHmTuaAbXTw4sOh6VP4UhxvKqwXIvVfse3emtomHS7D4BabFfk5s__2P70f437VeFE5IKWJAYQEYPcnb95T0MabWT3Fm45sDaSDn3ctCxi6g9Xkd5oWgDFLe4nli5bqCxQJ-5zZY",
+    imageAlt: "Prevail AI – Abstract digital art",
+    colSpan: "md:col-span-12",
+    aspectRatio: "aspect-[21/9]",
+  },
+  {
+    title: "Flux Studio",
+    category: "Product / UI Design",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80",
+    imageAlt: "Flux Studio – colorful abstract art",
+    colSpan: "md:col-span-11 md:ml-auto",
+    aspectRatio: "aspect-[16/10]",
+    offsetTop: "md:mt-48",
+  },
+  {
+    title: "Northbound",
+    category: "Identity / Motion",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80",
+    imageAlt: "Northbound – mountain landscape",
     colSpan: "md:col-span-7",
-    aspectRatio: "aspect-[4/3]",
+    aspectRatio: "aspect-square",
+    offsetTop: "md:-mt-24",
   },
   {
-    title: "Disciplined Results",
-    category: "Visual Identity",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC_iMqm1CsPgTcViSkMhC7Y3J_ukhDNK15kqH9Dxz8Fo4Sx0PtK-HsjVCOcx0Wn7ap6c4_THCsY4_qA9aRePEiD4aC4OHw2DVRYRvJHarCZamOsksrCIVVKcE06cETOIi-JjV1f0EKWlaY-NiVrb3LK7FP8XXkXVZxPKHbZjTt9g5AmKhLEdltXP07JvRkRj5PdRzQzaQOy4ZHiDt6-8RV5h5B3FDGdCTVjnHOo4mEmAyxUGmkdswY_R6yL1fukZecOBmQbRLUj1GQO",
-    imageAlt: "Minimalist desk",
-    colSpan: "md:col-span-4",
-    offsetTop: "md:pt-48",
-    aspectRatio: "aspect-[3/4]",
-    tilted: true,
-  },
-  {
-    title: "Denim Made Better",
-    category: "Ecommerce",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCsS3Dv7x0KF5rP0owRfOdWbGWLlrUMyhl_XKQ3exNLMWlWOVMcIz6i5ZL-X-k4O_2crzmYiViNkkWqp1sXVUPy_V6Y_0oBBzlAqUwgu0Miqq55NL9Fc5_K-tA8IJBTqz9GatJ-AzCodzwLTOW8F_zZpQgtgrxaVou966ykA2EgO2guPW5VlNEsSMITb7RuNtF8EdRI5wUDmhSqryltk1cTp7AS50dPhuGU9g2l5KNqmemB2MyijZ-a9bWV4ca4ERPxpKhKETdMtkAC",
-    imageAlt: "Denim texture",
-    colSpan: "md:col-span-5",
-    aspectRatio: "aspect-[3/4]",
-  },
-  {
-    title: "A Local Landmark",
-    category: "Packaging",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAau6X038eG6c9v66M0KHosS3xz8ar1oR9AUxftQPX6swtgp69KBFPscbugMmj2eK8rOH6F9YOiY_GZQTATQ8Yk7Qd_lfDrqLZhdHQYs5Q_rsboQtuKhKiM_cqMw4Z9v1DE1jnWMb_pSgj_llHs8F8lw7dCH7PhVnY_cDXliqersC__88SgIW6TWbDk4CpyH-xhoZixV8wxrPPq5P8RkFXd2gihCrjU7ghofOmBn1ZLOQJkS3PmGS2e0oPNenWh7xFg1dnr9Xs0gOoL",
-    imageAlt: "Brutalist building",
-    colSpan: "md:col-span-6",
-    offsetTop: "md:pt-24",
-    aspectRatio: "aspect-[16/9]",
-    tilted: true,
+    title: "Vanta Labs",
+    category: "Strategy / Web",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=80",
+    imageAlt: "Vanta Labs – tech abstract",
+    colSpan: "md:col-span-12",
+    aspectRatio: "aspect-[16/7]",
+    offsetTop: "md:mt-32",
   },
 ];
 ---
 
-<Layout title="Executive Plan">
+<Layout title="Executive Plan — Creative Studio">
   <Navigation client:load />
 
   <main>
-    {/* Hero Section */}
-    <section
-      data-theme="light"
-      class="min-h-screen flex flex-col justify-center items-center px-8 text-center pt-24 pb-48"
-    >
-      <div class="reveal active">
-        <p
-          class="inter text-xs uppercase tracking-[0.3em] font-bold text-secondary/40 mb-12"
-        >
-          Kota, Rajasthan, India • {new Date().getFullYear()}
+    {/* Hero */}
+    <section class="min-h-[90vh] flex flex-col justify-center items-start px-8 md:px-16 pt-32 pb-48 relative overflow-hidden">
+      <div class="inter text-[10px] uppercase tracking-[0.4em] text-primary/30 mb-12 font-bold animate-fade-in">
+        Creative Studio — Based in India
+      </div>
+      
+      <h1 id="hero-title" class="newsreader text-[12vw] md:text-[10vw] font-bold leading-[0.85] tracking-tighter mb-16 max-w-6xl">
+        We craft <br />
+        <span class="italic">unforgettable</span> <br />
+        digital ideas.
+      </h1>
+
+      <div class="flex flex-col md:flex-row items-start md:items-end justify-between w-full gap-12">
+        <p id="hero-desc" class="inter text-lg md:text-xl text-primary/60 max-w-sm leading-relaxed reveal">
+          An independent studio building the next generation of brands through code, design, and strategic motion.
         </p>
-        <h1
-          class="newsreader text-7xl md:text-[10rem] font-bold leading-[0.85] tracking-tight text-primary max-w-6xl mx-auto"
-        >
-          Branding & <br />
-          <span class="italic text-secondary">Digital Wiz</span>
-        </h1>
-      </div>
 
-      <div
-        class="mt-24 flex flex-col items-center gap-6 reveal"
-        style="transition-delay: 0.3s;"
-      >
-        <div class="w-[1px] h-32 bg-primary/10"></div>
-        <p class="inter text-sm uppercase tracking-widest font-bold opacity-40">
-          Scroll to Explore
-        </p>
-      </div>
-    </section>
-
-    {/* Philosophy / Intro */}
-    <section
-      id="intro"
-      data-theme="white"
-      class="relative bg-white text-[#0F3D3E] px-8 md:px-16 py-64 transition-colors duration-1000"
-    >
-      <TornEdge color="#FFFFFF" />
-      <div class="max-w-[1440px] mx-auto grid md:grid-cols-12">
-        <div class="md:col-span-8 md:col-start-3 reveal">
-          <h2
-            class="newsreader text-4xl md:text-6xl font-medium leading-tight text-primary/80"
-          >
-            Hey, I'm Executive Plan. A creative specializing in
-            <span class="italic text-primary">magical</span>
-            brand experiences. I believe in bold ideas and disciplined execution.
-          </h2>
+        {/* Scroll hint */}
+        <div class="flex flex-col items-center gap-4 opacity-20">
+          <span class="inter text-[10px] uppercase tracking-[0.3em] font-bold">Explore Cases</span>
+          <div class="w-px h-16 bg-primary animate-[height_2s_ease-in-out_infinite] origin-top"></div>
         </div>
       </div>
     </section>
 
-    {/* Portfolio Grid - Triggers Dark Theme */}
-    <section
-      id="portfolio"
-      data-theme="dark"
-      class="relative bg-[#003333] px-8 md:px-16 py-64 transition-colors duration-1000"
-    >
-      <TornEdge color="#003333" />
-      <div class="max-w-[1440px] mx-auto">
-        <div class="mb-32 reveal">
-          <h3 class="newsreader text-2xl italic opacity-60 mb-4">
-            Visual Summary
-          </h3>
-          <div class="w-full h-[1px] bg-primary/10"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-32 md:gap-x-16">
-          {
-            projects.map((project) => (
-              <ProjectCard
-                title={project.title}
-                category={project.category}
-                image={project.image}
-                imageAlt={project.imageAlt}
-                colSpan={project.colSpan}
-                offsetTop={project.offsetTop}
-                aspectRatio={project.aspectRatio}
-                tilted={project.tilted}
-              />
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    {/* Let's Work Section */}
-    <section
-      id="contact"
-      data-theme="light"
-      class="relative bg-[#F5EFE6] text-[#0F3D3E] px-8 md:px-16 py-64 text-center transition-colors duration-1000"
-    >
-      <TornEdge color="#F5EFE6" />
-      <div class="max-w-4xl mx-auto reveal">
-        <h2
-          class="newsreader text-6xl md:text-9xl font-bold leading-none mb-16"
-        >
-          Let's build <br />
-          <span class="italic text-secondary">Something</span>
-          <br />
-          magical.
+    {/* Statement Section */}
+    <section class="py-64 bg-primary text-background overflow-hidden relative">
+      <div class="max-w-[1440px] mx-auto px-8 md:px-16">
+        <h2 id="statement-text" class="newsreader text-[7vw] md:text-[6vw] font-bold leading-[1.1] tracking-tighter max-w-5xl">
+          We believe that <span class="italic text-secondary">great design</span> isn't just about how it looks, it's about how it <span class="opacity-40">connects</span> strategy to human emotion.
         </h2>
-        <a
-          href="mailto:hello@mynrd.co.uk"
-          class="group relative inline-flex items-center justify-center px-12 py-6 overflow-hidden rounded-full border border-primary/10 transition-all duration-300 hover:border-primary"
-        >
-          <span
-            class="relative z-10 inter font-bold text-xl uppercase tracking-widest"
-            >Get in touch</span
-          >
-          <div
-            class="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
-          >
-          </div>
-          <span
-            class="absolute z-20 inter font-bold text-xl uppercase tracking-widest text-background translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
-            >Get in touch</span
-          >
-        </a>
+      </div>
+      
+      {/* Marquee background effect */}
+      <div class="mt-48 opacity-10 pointer-events-none select-none overflow-hidden">
+        <div class="flex whitespace-nowrap animate-[marquee_20s_linear_infinite]">
+          {Array(4).fill(0).map(() => (
+            <span class="newsreader text-[15vw] font-bold uppercase tracking-tighter mr-20 shrink-0 italic">
+              Strategy & Craft &middot; Digital Native &middot; Bold Vision &middot; 
+            </span>
+          ))}
+        </div>
       </div>
     </section>
-  </main>
 
-  <Footer />
+    {/* Interactive Service List */}
+    <div class="py-48">
+        <InteractiveServiceList />
+    </div>
+
+    {/* Projects Grid */}
+    <section class="max-w-[1440px] mx-auto px-8 md:px-16 pb-64">
+      <div class="flex justify-between items-end mb-32 reveal">
+        <div class="inter text-[10px] uppercase tracking-[0.4em] text-primary/30 font-bold">
+          Selected Cases
+        </div>
+        <div class="newsreader text-sm italic opacity-40">
+           Curating Excellence Since 2024
+        </div>
+      </div>
+      
+      <div id="project-grid" class="grid grid-cols-1 md:grid-cols-12 gap-y-32 md:gap-y-64 gap-x-8 md:gap-x-12">
+        {projects.map((project, index) => (
+          <ProjectCard
+            title={project.title}
+            category={project.category}
+            image={project.image}
+            imageAlt={project.imageAlt}
+            index={index}
+            colSpan={project.colSpan}
+            aspectRatio={project.aspectRatio}
+            offsetTop={project.offsetTop ?? ""}
+          />
+        ))}
+      </div>
+    </section>
+
+    {/* Recognition Bridge */}
+    <Recognition />
+  </main>
 </Layout>
 
 <script>
-  // Intersection Observer for scroll-triggered reveal animations
-  const revealCallback = (entries: IntersectionObserverEntry[]) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-      }
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import SplitType from 'split-type';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initAnimations = () => {
+    // Initial states to prevent jumps/stutter
+    gsap.set(['#hero-title', '#hero-desc', '#statement-text', '.reveal'], { opacity: 0 });
+
+    // Hero Title Reveal
+    const heroTitle = new SplitType('#hero-title', { types: 'lines,words' });
+    if (heroTitle.words) {
+      gsap.set('#hero-title', { opacity: 1 }); // container visible, children hidden
+      gsap.from(heroTitle.words, {
+        y: '100%',
+        opacity: 0,
+        duration: 1.5,
+        stagger: 0.05,
+        ease: 'expo.out',
+        delay: 0.3
+      });
+    }
+
+    // Hero Desc Reveal
+    const heroDesc = new SplitType('#hero-desc', { types: 'lines' });
+    if (heroDesc.lines) {
+      gsap.set('#hero-desc', { opacity: 1 });
+      gsap.from(heroDesc.lines, {
+          y: 20,
+          opacity: 0,
+          duration: 1.2,
+          stagger: 0.1,
+          ease: 'power3.out',
+          delay: 0.8
+      });
+    }
+
+    // Statement Reveal on Scroll
+    const statementText = new SplitType('#statement-text', { types: 'words' });
+    if (statementText.words) {
+      gsap.set('#statement-text', { opacity: 1 });
+      gsap.from(statementText.words, {
+        scrollTrigger: {
+          trigger: '#statement-text',
+          start: 'top 80%',
+          end: 'bottom 40%',
+          scrub: 1,
+        },
+        opacity: 0.1,
+        y: 20,
+        stagger: 0.1,
+        ease: 'power3.out'
+      });
+    }
+
+    // Projects stagger entrance
+    const cards = document.querySelectorAll('.project-card-v2');
+    cards.forEach((card) => {
+        gsap.fromTo(card, 
+            { y: 100, opacity: 0 },
+            {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 95%',
+                    toggleActions: 'play none none none'
+                },
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+                ease: 'expo.out'
+            }
+        );
+    });
+
+    // Simple reveals (excluding specifically animated sections)
+    const reveals = document.querySelectorAll('.reveal:not(.project-card-v2)');
+    reveals.forEach(el => {
+        gsap.to(el, {
+            scrollTrigger: {
+                trigger: el,
+                start: 'top 90%',
+            },
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power2.out',
+            onStart: () => { gsap.set(el, { opacity: 1 }); } // Ensure visibility
+        });
     });
   };
 
-  const revealObserver = new IntersectionObserver(revealCallback, {
-    threshold: 0.1,
-  });
+  // Run on load
+  initAnimations();
 
-  document
-    .querySelectorAll(".reveal")
-    .forEach((el) => revealObserver.observe(el));
-
-  // Theme Switcher Observer
-  const themeObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const theme = entry.target.getAttribute("data-theme");
-          if (theme) {
-            document.body.setAttribute("data-theme", theme);
-          }
-        }
-      });
-    },
-    {
-      threshold: 0.25, // Wait until a quarter of the section is visible
-    },
-  );
-
-  document.querySelectorAll("section[data-theme]").forEach((section) => {
-    themeObserver.observe(section);
+  // Run after view transitions
+  document.addEventListener('astro:after-swap', () => {
+    initAnimations();
   });
 </script>
+
+<style is:global>
+  @keyframes height {
+    0%, 100% { transform: scaleY(0.4); opacity: 0.2; }
+    50% { transform: scaleY(1); opacity: 1; }
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .newsreader { font-family: "Newsreader", serif; }
+  .inter { font-family: "Inter", sans-serif; }
+  
+  .ease-expo {
+      transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+</style>

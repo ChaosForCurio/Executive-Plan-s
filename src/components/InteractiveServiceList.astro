@@ -1,0 +1,133 @@
+---
+const services = [
+  { 
+    id: '01', 
+    title: 'Brand Architecture', 
+    desc: 'Structuring identities that dominate the market.',
+    image: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=600&q=80'
+  },
+  { 
+    id: '02', 
+    title: 'Digital Strategy', 
+    desc: 'Bespoke roadmaps for future-proof growth.',
+    image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=600&q=80'
+  },
+  { 
+    id: '03', 
+    title: 'Experience Design', 
+    desc: 'Crafting interfaces that feel like second nature.',
+    image: 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?w=600&q=80'
+  },
+  { 
+    id: '04', 
+    title: 'Creative Motion', 
+    desc: 'Bringing static brands to life through rhythm.',
+    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80'
+  }
+];
+---
+
+<section class="max-w-[1440px] mx-auto px-8 md:px-16 pb-48 relative overflow-hidden">
+  <div class="inter text-[10px] uppercase tracking-[0.4em] text-primary/30 mb-16 font-bold reveal">
+    Capabilities & Craft
+  </div>
+
+  <div class="service-list border-t border-primary/10">
+    {services.map((service) => (
+      <div 
+        class="service-item group relative border-b border-primary/10 py-12 flex flex-col md:flex-row justify-between items-start md:items-center cursor-none"
+        data-image={service.image}
+      >
+        <div class="flex items-center gap-8 reveal">
+          <span class="inter text-[10px] font-bold opacity-30">{service.id}</span>
+          <h3 class="newsreader text-4xl md:text-6xl font-bold tracking-tight transition-transform duration-500 group-hover:translate-x-4">
+            {service.title}
+          </h3>
+        </div>
+        
+        <p class="inter text-xs md:text-sm text-primary/40 max-w-xs leading-relaxed md:text-right transition-opacity duration-500 group-hover:opacity-100 reveal">
+          {service.desc}
+        </p>
+
+        {/* Floating Indicator */}
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0 hidden md:block">
+           <span class="material-symbols-outlined text-3xl">arrow_forward</span>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {/* The Floating Image Container */}
+  <div id="service-hover-image" class="fixed top-0 left-0 w-64 h-80 pointer-events-none z-[999] opacity-0 scale-50 transition-all duration-500 ease-out overflow-hidden">
+    <img src="" alt="Service Preview" class="w-full h-full object-cover grayscale" />
+  </div>
+</section>
+
+<script>
+  const initServiceHover = () => {
+    const serviceItems = document.querySelectorAll('.service-item');
+    const hoverContainer = document.getElementById('service-hover-image');
+    const hoverImg = hoverContainer?.querySelector('img');
+
+    if (!hoverContainer || !hoverImg) return;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let containerX = 0;
+    let containerY = 0;
+
+    const onMouseMove = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
+
+    const animate = () => {
+      const easing = 0.1;
+      containerX += (mouseX - containerX) * easing;
+      containerY += (mouseY - containerY) * easing;
+
+      hoverContainer.style.transform = `translate3d(${containerX + 20}px, ${containerY - 150}px, 0) rotate(${ (mouseX - containerX) * 0.1 }deg)`;
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+    window.addEventListener('mousemove', onMouseMove);
+
+    serviceItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const imgUrl = item.getAttribute('data-image');
+        if (imgUrl) {
+          hoverImg.src = imgUrl;
+          hoverContainer.style.opacity = '1';
+          hoverContainer.style.scale = '1';
+        }
+      });
+
+      item.addEventListener('mouseleave', () => {
+        hoverContainer.style.opacity = '0';
+        hoverContainer.style.scale = '0.5';
+      });
+    });
+  };
+
+  initServiceHover();
+  document.addEventListener('astro:after-swap', initServiceHover);
+</script>
+
+<style>
+  .service-item {
+    transition: background-color 0.4s ease;
+  }
+  
+  .service-item:hover {
+    background-color: rgba(0,0,0,0.02);
+  }
+
+  .service-item h3 {
+    transition: letter-spacing 0.5s ease, transform 0.5s ease;
+  }
+
+  .service-item:hover h3 {
+    letter-spacing: -0.02em;
+  }
+</style>

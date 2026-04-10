@@ -1,127 +1,204 @@
 ---
-import TornEdge from "./TornEdge.astro";
 const year = new Date().getFullYear();
 ---
 
 <footer
-  class="relative w-full bg-[#F2F1E8] text-[#0F3D3E] pt-48 pb-12 transition-colors duration-1000"
+  id="main-footer"
+  class="relative w-full bg-primary text-background pt-32 pb-12 overflow-hidden"
 >
-  <TornEdge color="#F2F1E8" />
+  {/* Large Background Brand Mark */}
+  <div 
+    id="footer-brand-mark"
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 newsreader text-[40vw] font-bold opacity-[0.03] pointer-events-none whitespace-nowrap select-none"
+  >
+    EXECUTIVE PLAN
+  </div>
 
-  <div class="max-w-[1440px] mx-auto px-8 md:px-16">
-    {/* Main CTA Section */}
-    <div
-      class="flex flex-col md:flex-row justify-between items-end gap-16 mb-48"
-    >
-      <div class="relative max-w-4xl group">
-        {/* Floating Paper Plane Icon */}
-        <div
-          class="absolute -top-16 left-32 animate-bounce pointer-events-none opacity-60"
-        >
-          <svg
-            width="48"
-            height="48"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="22" y1="2" x2="11" y2="13"></line>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-          </svg>
+  <div class="max-w-[1440px] mx-auto px-8 md:px-16 relative z-10">
+    {/* High-End CTA Section */}
+    <div class="mb-48 md:mb-64">
+      <div class="inter text-[10px] uppercase tracking-[0.4em] opacity-40 mb-12 font-bold reveal-footer">
+        Project Inquiry
+      </div>
+      <a
+        href="mailto:hello@executiveplan.co"
+        id="magnetic-link"
+        class="group relative inline-block newsreader text-[10vw] md:text-[8vw] font-bold leading-[0.9] tracking-tighter"
+      >
+        <div class="line-reveal overflow-hidden">
+          <span class="inline-block footer-title">Let's scale</span>
         </div>
+        <div class="line-reveal overflow-hidden">
+          <span class="inline-block footer-title italic">your vision.</span>
+        </div>
+        
+        {/* Subtle hover underline */}
+        <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-background group-hover:w-full transition-all duration-700 ease-expo"></div>
+      </a>
+    </div>
 
-        <a
-          href="mailto:hello@mynrd.co.uk"
-          class="newsreader text-7xl md:text-[8vw] font-bold leading-[0.9] tracking-tighter hover:italic transition-all duration-500 block"
-        >
-          Let's work <br /> together ↗
-        </a>
+    {/* Main Grid */}
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 pt-16 border-t border-background/10">
+      {/* Brand & Mission */}
+      <div class="md:col-span-5 flex flex-col justify-between">
+        <div>
+          <div class="newsreader text-4xl font-bold mb-6">EP.</div>
+          <p class="inter text-sm opacity-40 max-w-xs leading-relaxed">
+            Crafting clinical identities and digital-first experiences for forward-thinking brands.
+          </p>
+        </div>
+        <div class="mt-12 md:mt-0 pt-12 md:pt-0 border-t border-background/5 md:border-none">
+            <div class="flex items-center gap-4">
+                <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                <span class="inter text-[10px] uppercase tracking-widest font-bold opacity-30">Studio Status: Always Online</span>
+            </div>
+        </div>
       </div>
 
-      {/* Illustration */}
-      <div class="w-full max-w-sm relative">
-        <img
-          src="/juggling_globe_illustration.png"
-          alt="Creative Illustration"
-          class="w-full h-auto drop-shadow-2xl"
-        />
+      {/* Navigation */}
+      <div class="md:col-span-2">
+        <div class="inter text-[10px] uppercase tracking-[0.3em] font-bold opacity-20 mb-8">Navigation</div>
+        <ul class="flex flex-col gap-4">
+          <li><a href="/" class="inter text-sm hover:opacity-100 opacity-50 transition-opacity">Index</a></li>
+          <li><a href="#" class="inter text-sm hover:opacity-100 opacity-50 transition-opacity">Work</a></li>
+          <li><a href="#" class="inter text-sm hover:opacity-100 opacity-50 transition-opacity">Journal</a></li>
+          <li><a href="#" class="inter text-sm hover:opacity-100 opacity-50 transition-opacity">Contact</a></li>
+        </ul>
+      </div>
+
+      {/* Social */}
+      <div class="md:col-span-2">
+        <div class="inter text-[10px] uppercase tracking-[0.3em] font-bold opacity-20 mb-8">Connect</div>
+        <ul class="flex flex-col gap-4">
+          <li><a href="#" class="inter text-sm hover:opacity-100 opacity-50 transition-opacity">Instagram</a></li>
+          <li><a href="#" class="inter text-sm hover:opacity-100 opacity-50 transition-opacity">LinkedIn</a></li>
+          <li><a href="#" class="inter text-sm hover:opacity-100 opacity-50 transition-opacity">Twitter / X</a></li>
+          <li><a href="#" class="inter text-sm hover:opacity-100 opacity-50 transition-opacity">Awwwards</a></li>
+        </ul>
+      </div>
+
+      {/* Location / Clock */}
+      <div class="md:col-span-3 md:text-right flex flex-col md:items-end justify-between">
+        <div class="text-left md:text-right">
+          <div class="inter text-[10px] uppercase tracking-[0.3em] font-bold opacity-20 mb-8">Local Time</div>
+          <div id="footer-clock" class="newsreader text-5xl italic tabular-nums">00:00:00</div>
+          <div class="inter text-[10px] uppercase tracking-widest opacity-30 mt-2">Rajasthan, India (IST)</div>
+        </div>
       </div>
     </div>
 
-    {/* Bottom Bar: 4 Column Grid */}
-    <div
-      class="grid grid-cols-1 md:grid-cols-4 gap-12 border-t border-[#0F3D3E]/10 pt-16 mt-32 items-center"
-    >
-      {/* Col 1: Copyright */}
-      <div class="text-sm inter opacity-60">
-        &copy; {year} &mdash; Executive Plan
+    {/* Copyright & Legal */}
+    <div class="mt-32 pt-12 border-t border-background/5 flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="inter text-[9px] uppercase tracking-[0.3em] opacity-20 font-bold">
+        &copy; {year} Executive Plan Strategy & Design. Built with passion.
       </div>
-
-      {/* Col 2: Time & Location */}
-      <div class="flex items-center gap-3 text-sm inter opacity-80">
-        <span class="material-symbols-outlined text-[18px]">schedule</span>
-        <span id="footer-clock" class="tabular-nums font-medium">00:00:00</span>
-        <span class="opacity-40">Kota, Rajasthan, India</span>
-      </div>
-
-      {/* Col 3: Credits */}
-      <div class="text-sm inter opacity-60">
-        Made with ❤️ by <a
-          href="https://github.com/ChaosForCurio?tab=repositories"
-          class="border-b border-[#0F3D3E]/20 hover:border-[#0F3D3E]/60 transition-colors"
-          >Ash Nayak</a
-        >
-      </div>
-
-      {/* Col 4: Social Icons */}
-      <div class="flex md:justify-end gap-8">
-        <a href="#" class="opacity-60 hover:opacity-100 transition-opacity">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
-            ><path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-12h2v6h-2zm0 8h2v2h-2z"
-            ></path></svg
-          >
-        </a>
-        <a href="#" class="opacity-60 hover:opacity-100 transition-opacity">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
-            ><path
-              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.584.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-            ></path></svg
-          >
-        </a>
-        <a href="#" class="opacity-60 hover:opacity-100 transition-opacity">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
-            ><path
-              d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"
-            ></path></svg
-          >
-        </a>
+      <div class="flex gap-8 inter text-[9px] uppercase tracking-[0.3em] opacity-20 font-bold">
+        <a href="#" class="hover:opacity-100 transition-opacity">Privacy Policy</a>
+        <a href="#" class="hover:opacity-100 transition-opacity">Cookies</a>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-  function updateTime() {
-    const timeElement = document.getElementById("footer-clock");
-    if (!timeElement) return;
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import SplitType from 'split-type';
 
-    const options: Intl.DateTimeFormatOptions = {
-      timeZone: "Europe/London",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initFooter = () => {
+    // 1. Clock Update
+    const updateTime = () => {
+      const timeElement = document.getElementById("footer-clock");
+      if (!timeElement) return;
+      const options: Intl.DateTimeFormatOptions = {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      };
+      timeElement.innerText = new Intl.DateTimeFormat("en-GB", options).format(new Date());
     };
+    setInterval(updateTime, 1000);
+    updateTime();
 
-    timeElement.innerText = new Intl.DateTimeFormat("en-GB", options).format(
-      new Date(),
-    );
-  }
+    // 2. Magnetic Effect
+    const magneticLink = document.getElementById('magnetic-link');
+    if (magneticLink) {
+      magneticLink.addEventListener('mousemove', (e) => {
+        const bounds = magneticLink.getBoundingClientRect();
+        const x = e.clientX - bounds.left - bounds.width / 2;
+        const y = e.clientY - bounds.top - bounds.height / 2;
+        
+        gsap.to(magneticLink, {
+          x: x * 0.3,
+          y: y * 0.3,
+          duration: 0.6,
+          ease: 'power2.out'
+        });
+      });
 
-  setInterval(updateTime, 1000);
-  updateTime();
+      magneticLink.addEventListener('mouseleave', () => {
+        gsap.to(magneticLink, {
+          x: 0,
+          y: 0,
+          duration: 0.8,
+          ease: 'elastic.out(1, 0.3)'
+        });
+      });
+    }
+
+    // 3. Brand Mark Scroll Parallax
+    gsap.to('#footer-brand-mark', {
+      scrollTrigger: {
+        trigger: '#main-footer',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1
+      },
+      scale: 1.2,
+      opacity: 0.08,
+      ease: 'none'
+    });
+
+    // 4. Content Reveals
+    const footerTitles = new SplitType('.footer-title', { types: 'chars' });
+    if (footerTitles.chars) {
+        gsap.from(footerTitles.chars, {
+            scrollTrigger: {
+                trigger: '#main-footer',
+                start: 'top 60%',
+            },
+            y: 100,
+            opacity: 0,
+            stagger: 0.02,
+            duration: 1,
+            ease: 'expo.out'
+        });
+    }
+
+    const reveals = document.querySelectorAll('.reveal-footer');
+    gsap.from(reveals, {
+        scrollTrigger: {
+            trigger: '#main-footer',
+            start: 'top 70%',
+        },
+        y: 20,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: 'power3.out'
+    });
+  };
+
+  initFooter();
+  document.addEventListener('astro:after-swap', initFooter);
 </script>
+
+<style>
+  .newsreader { font-family: "Newsreader", serif; }
+  .inter { font-family: "Inter", sans-serif; }
+  .ease-expo { transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1); }
+</style>
