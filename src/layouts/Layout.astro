@@ -2,6 +2,7 @@
 import { ClientRouter } from 'astro:transitions';
 import LenisLoader from '../components/LenisLoader.astro';
 import Footer from '../components/Footer.astro';
+import WebGLBackground from '../components/WebGLBackground.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -40,6 +41,7 @@ const { title, description = 'Creative studio crafting bold identities, strategy
     <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
     <div class="glow-frame" aria-hidden="true"></div>
     
+    <WebGLBackground />
     <LenisLoader />
     
     <slot />

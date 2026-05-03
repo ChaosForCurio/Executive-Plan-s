@@ -4,6 +4,7 @@ import Navigation from "../components/Navigation.jsx";
 import ProjectCard from "../components/ProjectCard.astro";
 import InteractiveServiceList from "../components/InteractiveServiceList.astro";
 import Recognition from "../components/Recognition.astro";
+import Newsletter from "../components/Newsletter.tsx";
 
 const projects = [
   {
@@ -127,6 +128,9 @@ const projects = [
 
     {/* Recognition Bridge */}
     <Recognition />
+
+    {/* Newsletter Section */}
+    <Newsletter client:load />
   </main>
 </Layout>
 
